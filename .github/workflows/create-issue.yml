@@ -17,7 +17,7 @@ jobs:
 
       - name: REST API create issue
         run: |
-          if curl -L --fail\
+          if curl -sL --fail\
               -X POST \
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer ${{ github.token }}" \

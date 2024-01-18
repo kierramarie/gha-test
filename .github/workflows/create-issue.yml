@@ -25,8 +25,7 @@ jobs:
               https://api.github.com/repos/${{ github.repository }}/issues \
               -d '{"title":"Test 6",\
                   "body":"For details see: https://github.com/${{ github.repository }}//actions/runs/${{ github.run_id }}/job/${{ github.job }}",\
-                  "labels":["bug"]}' \
-              -o /dev/null; then
+                  "labels":["bug"]}'; then
               echo "Issue successfully created"
           else
               echo "Issue creation failed"

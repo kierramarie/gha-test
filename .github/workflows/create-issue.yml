@@ -26,4 +26,4 @@ jobs:
               -d '{"title":"Release Pipeline failed","body":"For details see: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}","labels":["bug"]}')
           regex='"url": "([^"]*)"'
           echo $regex
-          echo $response | egrep -o $regex
+          echo $response | egrep -o '$regex'

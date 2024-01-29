@@ -26,4 +26,5 @@ jobs:
               -d '{"title":"Release Pipeline failed","body":"For details see: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}","labels":["bug"]}')
           regex='"url": "([^"]*)"'
           echo $response
-          echo $response | grep '"url": "([^"]*)"'
+          variable=$(echo "$response" | jq -r '.url')
+          echo $variable

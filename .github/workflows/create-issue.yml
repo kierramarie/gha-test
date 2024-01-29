@@ -28,10 +28,11 @@ jobs:
           if [ ! -z "$url" ]; then
               echo "Issue successfully created"
               notification_text=":ibm-warning-filled: Release Pipeline failed. For details see: $url."
-              if curl -s --fail -X POST \
+              if curl -s -X POST \
                       -H 'Content-type: application/json' \
                       -d '{"text":"'"$notification_text"'"}' \
-                      ${{ secrets.SLACK_INCOMING_WEBHOOK }}; then
+                      ${{ secrets.SLACK_INCOMING_WEBHOOK }}
+                      -o /dev/null; then
                   echo "Slack message successfully created"
               else
                   echo "Slack message creation failed"

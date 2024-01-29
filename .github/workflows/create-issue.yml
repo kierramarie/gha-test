@@ -28,7 +28,7 @@ jobs:
           if [ ! -z "$url" ]; then
               echo "Issue successfully created"
               notification_text=":ibm-warning-filled: Release Pipeline failed. For details see: $url."
-              if curl -X POST \
+              if curl -s -X POST \
                       -H 'Content-type: application/json' \
                       -d '{"text":"'"$notification_text"'"}' \
                       ${{ secrets.SLACK_INCOMING_WEBHOOK }}; then

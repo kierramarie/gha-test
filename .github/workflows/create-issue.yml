@@ -31,7 +31,7 @@ jobs:
               if curl -s -X POST \
                       -H 'Content-type: application/json' \
                       -d '{"text":"'"$notification_text"'"}' \
-                      ${{ secrets.SLACK_INCOMING_WEBHOOK }}
+                      ${{ secrets.SLACK_INCOMING_WEBHOOK }} \
                       -o /dev/null; then
                   echo "Slack message successfully created"
               else

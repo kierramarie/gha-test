@@ -20,4 +20,5 @@ jobs:
   create-failure-notifications:
       needs: [ Fail ]
       uses: ./.github/workflows/create-issue.yml
+      secrets: inherit
       if: ${{ failure() }}

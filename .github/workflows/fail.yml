@@ -1,0 +1,19 @@
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  Create-Issue:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Set ownership
+          run: |
+            exit 1
+
+  create-failure-notifications:
+      uses: ./.github/workflows/create-issue.yml
+      if: ${{ failure() }}

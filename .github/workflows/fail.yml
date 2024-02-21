@@ -15,5 +15,6 @@ jobs:
           exit 1
 
   create-failure-notifications:
+      needs: [ Fail ]
       uses: ./.github/workflows/create-issue.yml
       if: ${{ failure() }}

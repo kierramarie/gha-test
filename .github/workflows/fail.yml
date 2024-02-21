@@ -3,14 +3,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  Create-Issue:
+  Fail:
     runs-on: ubuntu-latest
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Set ownership
+      - name: Fail
           run: |
             exit 1
 

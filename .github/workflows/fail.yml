@@ -11,8 +11,8 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Fail
-          run: |
-            exit 1
+        run: |
+          exit 1
 
   create-failure-notifications:
       uses: ./.github/workflows/create-issue.yml

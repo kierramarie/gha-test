@@ -13,7 +13,7 @@ on:
         description: 'Title for the issue created about the failure'
         required: false
         type: string
-        default: 'Release Pipeline failed'
+        default: '"Release Pipeline failed"'
       labels:
         description: 'Labels applied to the issue created'
         required: false
@@ -38,7 +38,7 @@ jobs:
               https://api.github.com/repos/${{ github.repository }}/issues \
               -d '{"title":${{ inputs.issue_title }},"body":"For details see: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}","labels":[${{ inputs.labels }}]}')
           url=$(echo "$response" | jq -r '.html_url')
-          if [ ! -z "$url" ]; then
+          if [ ! -z "$url" ] && [ "$url" != "null"]; then
               echo "Issue successfully created"
               notification_text=":ibm-warning-filled: Release Pipeline failed. For details see: $url."
               if curl -s -X POST \

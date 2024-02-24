@@ -18,7 +18,7 @@ on:
         description: 'Labels applied to the issue created'
         required: false
         type: string
-        default: '\"bug\"'
+        default: '"bug"'
 
 jobs:
   Create-Issue:

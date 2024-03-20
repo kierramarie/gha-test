@@ -16,6 +16,6 @@ jobs:
 
   create-failure-notifications:
       needs: [ Fail ]
-      uses: ./.github/workflows/create-issue.yml
+      uses: terraform-ibm-modules/common-pipeline-assets/.github/workflows/create-gh-issue-and-slack-message.yml@gha-pipeline-fail-alert
       secrets: inherit
       if: ${{ failure() }}

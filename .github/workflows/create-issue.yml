@@ -24,6 +24,7 @@ jobs:
     steps:
       - name: Create Issue on Failed workflow
         run: |
+          current_date=$(date +"%D")
           response=$(curl -sL \
               -X POST \
               -H "Accept: application/vnd.github.v3+json" \
